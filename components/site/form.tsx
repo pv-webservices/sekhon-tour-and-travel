@@ -23,24 +23,24 @@ function whatsappSummary(s: Summary) {
   ].filter(Boolean).join('\n');
 }
 
-class ValidationError extends Error {}
-
-function fallbackReference() {
-  return 'SK-' + Date.now().toString(36).toUpperCase();
+function createReference() {
+  return `SK-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 5).toUpperCase()}`;
 }
 
-/** Stores the enquiry as a backup record. Invalid input throws; storage/network failures return no reference. */
-async function saveToDatabase(data: Record<string, string>): Promise<{ reference?: string }> {
-  let res: Response;
+/**
+ * Stores a backup copy in Netlify Forms (visible in the Netlify dashboard). The static form definition
+ * Netlify detects at deploy time lives in public/__forms.html; field names must match it.
+ */
+async function saveToNetlifyForms(data: Record<string, string>, reference: string): Promise<boolean> {
+  const fields = ['name', 'phone', 'email', 'service', 'pickup', 'destination', 'pickupDate', 'returnDate', 'passengers', 'vehicle', 'message'];
+  const body = new URLSearchParams({ 'form-name': 'enquiry', reference, website: data.website ?? '' });
+  fields.forEach((f) => body.set(f, data[f] ?? ''));
   try {
-    res = await fetch('/api/enquiries', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    const res = await fetch('/__forms.html', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
+    return res.ok;
   } catch {
-    return {};
+    return false;
   }
-  const result = (await res.json().catch(() => ({}))) as { error?: string; reference?: string };
-  if (res.ok) return { reference: result.reference };
-  if (res.status < 500) throw new ValidationError(result.error || 'Please check your details and try again.');
-  return {};
 }
 
 /** Emails the enquiry to the business inbox through FormSubmit's AJAX endpoint. */
@@ -88,10 +88,12 @@ export function EnquiryForm() {
     setError('');
     setStatus('loading');
     try {
-      const saved = await saveToDatabase(data);
-      const reference = saved.reference ?? fallbackReference();
-      const emailed = data.website ? false : await emailViaFormSubmit(data, reference);
-      if (!saved.reference && !emailed) throw Error('We couldn’t send your request. Please try again, or call / WhatsApp us directly.');
+      const reference = createReference();
+      if (!data.website) {
+        // Honeypot empty: a real visitor. Email the business and keep a backup copy; either one is enough.
+        const [emailed, saved] = await Promise.all([emailViaFormSubmit(data, reference), saveToNetlifyForms(data, reference)]);
+        if (!emailed && !saved) throw Error('We couldn’t send your request. Please try again, or call / WhatsApp us directly.');
+      }
       setSummary({ reference, service, pickup: data.pickup, destination: data.destination, pickupDate: data.pickupDate, passengers: data.passengers, vehicle: data.vehicle });
       setStatus('success');
     } catch (err) {
@@ -122,7 +124,7 @@ export function EnquiryForm() {
       <p className="formintro">Share a few details and we’ll get back with the best quote. Fields marked * are required.</p>
       <div className="formgrid">
         <Field label="Full name *" name="name" required maxLength={100} autoComplete="name" placeholder="Your name" />
-        <Field label="Phone number *" name="phone" type="tel" required pattern="[+0-9 ()-]{10,18}" title="Enter a valid phone number, including country code if outside India" autoComplete="tel" placeholder="+91" />
+        <Field label="Phone number *" name="phone" type="tel" required pattern="[+0-9 \(\)\-]{10,18}" title="Enter a valid phone number, including country code if outside India" autoComplete="tel" placeholder="+91" />
         <Field label="Email address *" name="email" type="email" required maxLength={180} autoComplete="email" placeholder="you@example.com" />
         <div className="field">
           <label htmlFor="service">Service type *</label>

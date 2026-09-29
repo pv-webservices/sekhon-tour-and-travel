@@ -1,6 +1,6 @@
 export const brand = {
   name: 'Sekhon Tour and Travel',
-  origin: 'https://sekhon-tour-and-travel.pramodkumar21011996.chatgpt.site',
+  origin: (process.env.SITE_URL ?? 'https://sekhon-tour-and-travel.netlify.app').replace(/\/$/, ''),
   phone: '+918054202500',
   phoneDisplay: '+91 80542 02500',
   whatsapp: '918054202500',

@@ -232,7 +232,7 @@ export function LegalPage({ title, privacy }: { title: string; privacy: boolean 
             <h2>How It Is Used</h2>
             <p>Your information is used only to respond to your enquiry, prepare a quotation and arrange your travel. Submitting an enquiry does not confirm a booking or authorise any payment.</p>
             <h2>Storage & Access</h2>
-            <p>Enquiry details are emailed to our team through FormSubmit (formsubmit.co), an email-forwarding service, and a copy is stored securely in the website’s database. They are never displayed publicly or sold to third parties.</p>
+            <p>Enquiry details are emailed to our team through FormSubmit (formsubmit.co), an email-forwarding service, and a backup copy is kept securely in our website host’s (Netlify) form records. They are never displayed publicly or sold to third parties.</p>
             <h2>Your Requests</h2>
             <p>To correct or delete an enquiry, contact us at {brand.email} or {brand.phoneDisplay} with your enquiry reference.</p>
             <h2>External Services</h2>

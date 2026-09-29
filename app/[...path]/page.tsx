@@ -24,10 +24,23 @@ function getTitle(path: string[]) {
   return undefined;
 }
 
+// Static export: every route is pre-rendered at build time; anything else falls through to the 404 page.
+export const dynamicParams = false;
+
+export function generateStaticParams(): { path: string[] }[] {
+  return [
+    ...Object.keys(pageTitles).map((page) => [page]),
+    ...cars.map((c) => ['cars', c.slug]),
+    ...cars.filter((c) => c.wedding).map((c) => ['wedding-cars', c.slug]),
+    ...tours.map((t) => ['tours', t.slug]),
+    ...destinations.map((d) => ['destinations', d.slug]),
+  ].map((path) => ({ path }));
+}
+
 export async function generateMetadata({ params }: Props) {
   const { path } = await params;
   const title = getTitle(path) || 'Page Not Found';
-  const url = '/' + path.join('/');
+  const url = '/' + path.join('/') + '/';
   const description = `${title} — Sekhon Tour and Travel, Amritsar. Car rentals, taxis, wedding cars and North India tours. Call ${brand.phoneDisplay} for a quick quote.`;
   return { title, description, alternates: { canonical: url }, openGraph: { title: `${title} | Sekhon Tour and Travel`, description, url } };
 }
@@ -63,7 +76,7 @@ export default async function Page({ params }: Props) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: brand.origin },
-      { '@type': 'ListItem', position: 2, name: title, item: `${brand.origin}/${path.join('/')}` },
+      { '@type': 'ListItem', position: 2, name: title, item: `${brand.origin}/${path.join('/')}/` },
     ],
   };
   const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };

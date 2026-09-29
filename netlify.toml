@@ -1,0 +1,26 @@
+# Netlify deployment: Next.js static export. These settings override the build settings in the Netlify UI.
+[build]
+  command = "pnpm run build:netlify"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Fingerprinted Next.js assets never change, so cache them for a year.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

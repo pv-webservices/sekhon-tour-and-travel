@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Link from '@/components/site/nav-link';
+import Link, { withTrailingSlash } from '@/components/site/nav-link';
 import { Clock, MapPin, ArrowRight } from 'lucide-react';
 import { cars, tours, faqGroups, carCategories, tourRegions, type Tour } from '@/data/site';
 import { FleetCard, Photo, ButtonLink, FAQ } from './shared';
@@ -28,7 +28,7 @@ function FilterPills<T extends string>({ label, options, value, base, param, fal
         <a
           key={c}
           className={'filter' + (value === c ? ' selected' : '')}
-          href={c === fallback ? base : `${base}?${param}=${encodeURIComponent(c)}`}
+          href={withTrailingSlash(c === fallback ? base : `${base}?${param}=${encodeURIComponent(c)}`)}
           aria-current={value === c ? 'page' : undefined}
           onClick={(e) => { e.preventDefault(); onSelect(c); }}
         >

@@ -202,13 +202,13 @@ export function DestinationScroller() {
 const galleryRows = [
   [
     { image: 'fleet', label: 'Our Fleet', href: '/cars' },
-    { image: 'crysta-interior', label: 'Crysta Captain Seats', href: '/cars/innova-crysta' },
+    { image: 'innova-crysta-cabin', label: 'Innova Crysta Cabin', href: '/cars/innova-crysta' },
     { image: 'wedding-detail', label: 'Wedding Decoration', href: '/wedding-cars' },
     { image: 'airport', label: 'Airport Pickup', href: '/airport-transfer' },
     { image: 'amritsar', label: 'Golden Temple Tours', href: '/tours/amritsar-heritage' },
   ],
   [
-    { image: 'tempo-interior', label: 'Tempo Traveller Interior', href: '/cars/tempo-traveller' },
+    { image: 'tempo-traveller-cabin', label: 'Tempo Traveller Interior', href: '/cars/tempo-traveller' },
     { image: 'chauffeur', label: 'Professional Chauffeurs', href: '/taxi-with-driver' },
     { image: 'etios', label: 'Toyota Etios', href: '/cars/toyota-etios' },
     { image: 'kashmir', label: 'Kashmir Tours', href: '/tours/kashmir-tour' },

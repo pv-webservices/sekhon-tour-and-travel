@@ -25,7 +25,7 @@ function ContentCards({ items, three = false }: { items: CardItem[]; three?: boo
 export function CarsPage({ title }: { title: string }) {
   return (
     <>
-      <PageHero title={title} label="OUR FLEET" image="fleet" text="Etios, Innova, Innova Crysta, Fortuner and Tempo Travellers — clean, comfortable and driven by professionals." />
+      <PageHero title={title} label="OUR FLEET" image="fleet" text="Etios, Innova, Innova Crysta, Kia Carens, Fortuner, Force Urbania and Tempo Travellers — clean, comfortable and driven by professionals." />
       <section className="wrap section"><Suspense><CarCatalog /></Suspense></section>
       <HowItWorks />
       <CTA />
@@ -160,7 +160,7 @@ export function AboutPage({ title }: { title: string }) {
     <>
       <PageHero title={title} label="THE SEKHON STORY" image="fleet" text="A love of the open road — and a thoughtful approach to getting you there." />
       <section className="wrap section aboutsplit">
-        <div className="aboutimage" data-reveal="zoom"><Photo name="fleet" alt="Sekhon Tour and Travel fleet lined up at sunrise" /><span className="aboutbadge"><Compass size={20} /> Based in Amritsar</span></div>
+        <div className="aboutimage" data-reveal="zoom"><Photo name="office-amritsar" alt="Sekhon Tour and Travel booking office in Old Jawahar Nagar, Amritsar" /><span className="aboutbadge"><Compass size={20} /> Based in Amritsar</span></div>
         <div data-reveal>
           <span className="eyebrow">WHO WE ARE</span>
           <h2>Good Travel Starts With Understanding You.</h2>
@@ -173,7 +173,7 @@ export function AboutPage({ title }: { title: string }) {
         <div className="wrap">
           <ContentCards three items={[
             { title: 'Our Mission', text: 'Make travel planning clear and personal, with honest pricing and dependable vehicles.', icon: <Target /> },
-            { title: 'Our Fleet & Drivers', text: 'Etios, Innova, Innova Crysta, Fortuner and Tempo Travellers with experienced, courteous drivers.', icon: <ShieldCheck /> },
+            { title: 'Our Fleet & Drivers', text: 'Etios, Innova, Innova Crysta, Kia Carens, Fortuner, Force Urbania and Tempo Travellers with experienced, courteous drivers.', icon: <ShieldCheck /> },
             { title: 'Our North India Focus', text: 'From Punjab and Himachal to Kashmir and Ladakh — routes we know and love.', icon: <MapPin /> },
           ]} />
         </div>
@@ -244,7 +244,7 @@ export function LegalPage({ title, privacy }: { title: string; privacy: boolean 
             <h2>Enquiries & Confirmation</h2>
             <p>Submitting the form sends a booking request. A vehicle or tour is reserved only when the service, dates, price and conditions are agreed in writing.</p>
             <h2>Images</h2>
-            <p>Vehicle and destination images are representative. The exact model year, variant and decoration are confirmed with your booking.</p>
+            <p>Innova Crysta, Kia Carens, Force Urbania and Tempo Traveller photos show our own vehicles. Other vehicle and destination images are representative. The exact model year, variant and decoration are confirmed with your booking.</p>
             <h2>Prices & Inclusions</h2>
             <p>Prices are provided on request as an itemised quote listing distance, fuel, driver allowance, tolls, parking, state taxes and permits where applicable.</p>
             <h2>Changes & Cancellation</h2>

@@ -59,7 +59,7 @@ export function Heading({ label, title, text, href, link = 'Explore more', cente
   );
 }
 
-const weddingImage: Record<string, string> = { 'toyota-fortuner': 'wedding', 'innova-crysta': 'wedding-detail', 'tempo-traveller': 'tempo' };
+const weddingImage: Record<string, string> = { 'toyota-fortuner': 'wedding', 'innova-crysta': 'wedding-detail' };
 
 export function FleetCard({ car, wedding = false, index = 0 }: { car: CarType; wedding?: boolean; index?: number }) {
   const base = wedding ? 'wedding-cars' : 'cars';
@@ -225,7 +225,7 @@ export function Trust() {
 }
 
 const whyItems = [
-  { icon: Car, title: 'Reliable Fleet', text: 'Etios, Innova, Crysta, Fortuner & Tempo Travellers' },
+  { icon: Car, title: 'Reliable Fleet', text: 'Etios, Innova, Carens, Fortuner, Urbania & Tempo Travellers' },
   { icon: UserCheck, title: 'Professional Drivers', text: 'Experienced, courteous and route-savvy' },
   { icon: CalendarDays, title: 'Flexible Booking', text: 'Hourly, daily, one-way or long tours' },
   { icon: Plane, title: 'Airport Service', text: 'Amritsar, Chandigarh & Delhi airports' },

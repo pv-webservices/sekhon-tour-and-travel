@@ -1,13 +1,14 @@
 # Content status
 
 Business details in `data/site.ts`: Sekhon Tour and Travel, +91 80542 02500 (call + WhatsApp), sukhbirsingh82635@gmail.com, 2227, Street No. 3, Old Jawahar Nagar, Amritsar, Punjab.
-Fleet: Toyota Etios, Toyota Innova, Innova Crysta, Toyota Fortuner, Tempo Traveller (12–17 seats).
+Fleet: Toyota Etios, Toyota Innova, Innova Crysta, Kia Carens, Toyota Fortuner, Force Urbania, Tempo Traveller (12–17 seats).
 
 # Before public customer launch
 
 - No prices, ratings, customer reviews or business statistics are invented. Cars show "Best Rates / Quote in minutes". Add real prices and approved reviews when available.
 - Social media links are not included (no verified URLs). Add them to the footer when supplied.
-- Images are AI-generated representative imagery (Magnific, Nano Banana 2, 1K, WebP). Replace with real fleet photos when available.
+- Real fleet photos (client-supplied, converted to WebP in `public/images/`) are used for the Innova Crysta, Kia Carens, Force Urbania and Tempo Traveller, plus the office photo on the About page. Remaining vehicle, hero and destination images are AI-generated representative imagery (Magnific, Nano Banana 2, 1K, WebP). Replace the Etios, Innova and Fortuner images with real photos when available.
+- Confirm with the client: Kia Carens fuel/transmission (assumed Diesel, Manual) and Force Urbania seat count (listed as 10 – 17).
 - No video exists in the project; none was generated.
 - Enquiries are emailed to sukhbirsingh82635@gmail.com via FormSubmit (AJAX endpoint, `FORMSUBMIT_ENDPOINT` in `data/site.ts`) and a backup copy is stored in Netlify Forms (definition in `public/__forms.html`). The success screen additionally offers "Send on WhatsApp".
 - **FormSubmit activation required:** the first live submission makes FormSubmit send an "Activate Form" email to the client inbox. Emails are only delivered after that link is clicked. Optionally, replace the email in `FORMSUBMIT_ENDPOINT` with the random alias FormSubmit provides after activation, to keep the address out of the page source.

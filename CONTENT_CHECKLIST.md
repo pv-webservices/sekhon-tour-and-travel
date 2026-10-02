@@ -1,7 +1,7 @@
 # Content status
 
 Business details in `data/site.ts`: Sekhon Tour and Travel, +91 80542 02500 (call + WhatsApp), sukhbirsingh82635@gmail.com, 2227, Street No. 3, Old Jawahar Nagar, Amritsar, Punjab.
-Fleet: Toyota Etios, Toyota Innova, Innova Crysta, Kia Carens, Toyota Fortuner, Force Urbania, Tempo Traveller (12–17 seats).
+Fleet (display order): Force Urbania, Toyota Innova Crysta, Kia Carens, Tempo Traveller (12–17 seats), Toyota Fortuner, Toyota Etios, Toyota Innova.
 
 # Before public customer launch
 

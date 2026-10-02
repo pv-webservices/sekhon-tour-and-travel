@@ -49,7 +49,7 @@ export function CarCatalog() {
       <div className="fleetgrid catalog" key={filter}>
         {list.map((c, i) => <FleetCard key={c.slug} car={c} wedding={wedding} index={i} />)}
       </div>
-      <p className="fineprint">Innova Crysta, Kia Carens, Force Urbania and Tempo Traveller photos show our own vehicles; other vehicle images are representative. Exact model year and variant are confirmed with your booking.</p>
+      <p className="fineprint">Force Urbania, Innova Crysta, Kia Carens and Tempo Traveller photos show our own vehicles; other vehicle images are representative. Exact model year and variant are confirmed with your booking.</p>
     </>
   );
 }

@@ -7,7 +7,7 @@ import { brand } from '@/data/site';
 export const metadata: Metadata = {
   metadataBase: new URL(brand.origin),
   title: { default: 'Sekhon Tour and Travel | Journeys Made Simple', template: '%s | Sekhon Tour and Travel' },
-  description: 'Car rentals, taxi with driver, luxury wedding cars and North India tour packages from Amritsar, Punjab. Innova, Crysta, Kia Carens, Etios, Fortuner, Force Urbania and Tempo Traveller. Call +91 80542 02500.',
+  description: 'Car rentals, taxi with driver, luxury wedding cars and North India tour packages from Amritsar, Punjab. Force Urbania, Innova Crysta, Kia Carens, Tempo Traveller, Fortuner, Etios and Innova. Call +91 80542 02500.',
   icons: { icon: '/favicon.svg' },
 };
 

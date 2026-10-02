@@ -6,7 +6,7 @@ import { services, brand, telHref, whatsappHref } from '@/data/site';
 
 export const metadata = {
   title: 'Sekhon Tour and Travel | Car Rental, Taxi & Tour Packages in Amritsar',
-  description: 'Car rental and taxi service in Amritsar — Etios, Innova, Innova Crysta, Kia Carens, Fortuner, Force Urbania and Tempo Traveller with driver. Luxury wedding cars, airport transfers and North India tour packages. Call +91 80542 02500.',
+  description: 'Car rental and taxi service in Amritsar — Force Urbania, Innova Crysta, Kia Carens, Tempo Traveller, Fortuner, Etios and Innova with driver. Luxury wedding cars, airport transfers and North India tour packages. Call +91 80542 02500.',
   alternates: { canonical: '/' },
   openGraph: { title: 'Sekhon Tour and Travel', description: 'Drive your journey. Your way. Car rentals, wedding cars and tours from Amritsar.', url: '/', images: ['/images/hero.webp'] },
 };

@@ -225,7 +225,7 @@ export function Trust() {
 }
 
 const whyItems = [
-  { icon: Car, title: 'Reliable Fleet', text: 'Etios, Innova, Carens, Fortuner, Urbania & Tempo Travellers' },
+  { icon: Car, title: 'Reliable Fleet', text: 'Urbania, Crysta, Carens, Tempo Travellers, Fortuner, Etios & Innova' },
   { icon: UserCheck, title: 'Professional Drivers', text: 'Experienced, courteous and route-savvy' },
   { icon: CalendarDays, title: 'Flexible Booking', text: 'Hourly, daily, one-way or long tours' },
   { icon: Plane, title: 'Airport Service', text: 'Amritsar, Chandigarh & Delhi airports' },
